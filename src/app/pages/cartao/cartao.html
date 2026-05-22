@@ -2,6 +2,7 @@
 
   <div
     class="relative cursor-pointer perspective transition-all duration-700"
+
     (click)="flipCard()"
 
     [class.w-[340px]]="!isBack"
@@ -18,74 +19,149 @@
 
       <!-- FRONT -->
       <div
-        class="absolute inset-0 rounded-2xl overflow-hidden backface-hidden
-               shadow-2xl border border-zinc-400/20
-               bg-gradient-to-br from-green-900 via-green-800 to-green-700
-               p-5 flex flex-col"
+        class="absolute inset-0 rounded-3xl overflow-hidden backface-hidden
+               shadow-[0_0_80px_rgba(16,185,129,0.12)]
+               border border-white/10
+               bg-gradient-to-br from-purple-950  to-violet-400
+               p-7 flex flex-col"
       >
 
-        <div class="flex items-center justify-between">
-          <img src="/assets/tmkt.png" class="w-20" />
+        <!-- BG FX -->
 
-          <div
-            class="flex items-center gap-2 bg-white/10 border border-white/20
-                   px-3 py-1 rounded-full text-white text-xs"
-          >
-            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
-            Ativo
+
+        <div
+          class="absolute bottom-0 right-0 w-72 h-72
+                 bg-violet-400/20 blur-3xl rounded-full"
+        ></div>
+
+        <div
+          class="absolute inset-0
+                 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_35%)]"
+        ></div>
+
+        <div class="absolute inset-0 backdrop-blur-[1px]"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10 flex flex-col h-full">
+
+          <!-- TOP -->
+          <div class="flex items-start justify-between">
+
+            <!-- LOGO -->
+            <div class="relative">
+
+              <div
+                class="absolute inset-0 blur-3xl bg-emerald-400/20
+                       rounded-full scale-145"
+              ></div>
+
+              <img
+                src="/assets/logotipo.png"
+                class="relative w-62 drop-shadow-2xl"
+              />
+
+            </div>
+
           </div>
-        </div>
 
-        <div class="flex-1 flex items-center justify-center">
-          <img
-            src="/assets/logo-tmkt.png"
-            class="w-40 opacity-90"
-          />
-        </div>
+          <!-- CENTER -->
+          <div class="flex-1 flex flex-col justify-center">
 
-        <div>
-          <p class="text-white/60 text-xs uppercase">
-            Matrícula
-          </p>
+            <div class="space-y-3">
 
-          <h3 class="text-white text-lg font-bold">
-            #847291
-          </h3>
+              <div
+                class="inline-flex items-center gap-2
+                       px-3 py-1 rounded-full
+                       bg-white/10 border border-white/10
+                       backdrop-blur-md"
+              >
 
-          <div class="mt-3">
-            <h2 class="text-white text-2xl font-bold">
-              Rafael Cordeiro
-            </h2>
+                <span class="h-2 w-2 rounded-full bg-emerald-500 montserrat"></span>
+                <span class="text-white/70 text-xs tracking-wide uppercase">
 
-            <p class="text-white/70 text-sm">
-              Programador Trainee
-            </p>
+                  CRP 06/61283
+                </span>
+              </div>
+
+              <div class="space-y-1">
+
+                <h2
+                  class="text-white text-[34px]
+                         leading-[1.05]
+                         font-bold tracking-tight
+                         montserrat"
+                >
+                  Verônica C. Almeida
+                </h2>
+
+                <h4 class="text-white/70 text- font-normal montserrat">
+                  Psicóloga e Neuropsicóloga
+                </h4>
+
+              </div>
+
+            </div>
+
           </div>
+
+          <!-- FOOTER -->
+          <div class="flex items-end justify-between gap-4">
+
+            <div>
+
+              <p
+                class="text-white/40 text-[11px]
+                        tracking-[0.3em] montserrat"
+              >
+                CEO da Clínica Claramente
+              </p>
+
+              <p class="text-white/60 text-xs mt-1 montserrat">
+                Toque para interagir
+              </p>
+
+            </div>
+
+            <div>
+              <ng-icon name="lucideNfc" style="width: 24px; height: 24px; color: white" />
+            </div>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- BACK FULLSCREEN -->
+      <!-- BACK -->
+
       <div
-        class="absolute inset-0 bg-zinc-100 rotate-y-180 backface-hidden
-               flex flex-col overflow-auto"
-      >
+        class="absolute inset-0 bg-gradient-to-b from-purple-800  to-violet-200 rotate-y-180 backface-hidden flex flex-col overflow-auto">
+
 
         <!-- HEADER -->
-        <div
-          class="bg-green-800 text-white px-6 py-5
-                 flex items-center justify-between shadow-lg"
-        >
-          <div>
-            <h1 class="text-2xl font-bold">
-              Crachá Digital
-            </h1>
+        <div class="space-y-2 border-b border-zinc-200/10 text-center p-12">
 
-            <p class="text-white/70 text-sm">
-              Informações do colaborador
-            </p>
+          <div
+            class="inline-flex items-center gap-2
+                    px-3 py-1 rounded-full
+                    border border-zinc-200
+                    backdrop-blur-md"
+          >
+
+            <span class="h-2 w-2 rounded-full bg-emerald-500 montserrat"></span>
+            <span class="text-zinc-200 text-xs tracking-wide uppercase">
+
+              CRP 06/61283
+            </span>
           </div>
+          <h2 class="text-white text-4xl font-bold cormorant">
+            Verônica C. Almeida
+          </h2>
 
-          <img src="/assets/logo-tmkt.png" class="w-12" />
+          <p class="text-zinc-600 montserrat text-sm">
+            Psicóloga e Neuropsicóloga
+          </p>
+
         </div>
 
         <!-- CONTENT -->
@@ -103,18 +179,21 @@
           <div class="w-full max-w-xl mt-10 space-y-4">
 
             <div class="bg-white rounded-2xl p-5 shadow">
+
               <p class="text-zinc-400 text-xs uppercase">
                 Nome
               </p>
 
               <p class="text-zinc-800 font-bold text-lg">
-                Rafael Cordeiro
+                Verônica C. Almeida
               </p>
+
             </div>
 
             <div class="grid grid-cols-2 gap-4">
 
               <div class="bg-white rounded-2xl p-5 shadow">
+
                 <p class="text-zinc-400 text-xs uppercase">
                   Matrícula
                 </p>
@@ -122,9 +201,11 @@
                 <p class="font-bold text-zinc-800">
                   #847291
                 </p>
+
               </div>
 
               <div class="bg-white rounded-2xl p-5 shadow">
+
                 <p class="text-zinc-400 text-xs uppercase">
                   Validade
                 </p>
@@ -132,11 +213,13 @@
                 <p class="font-bold text-zinc-800">
                   12/2026
                 </p>
+
               </div>
 
             </div>
 
             <div class="bg-white rounded-2xl p-5 shadow">
+
               <p class="text-zinc-400 text-xs uppercase">
                 Setor
               </p>
@@ -144,6 +227,7 @@
               <p class="font-bold text-zinc-800">
                 Tecnologia da Informação
               </p>
+
             </div>
 
           </div>
