@@ -1,0 +1,159 @@
+<div class="flex items-center justify-center min-h-screen bg-zinc-900 overflow-hidden">
+
+  <div
+    class="relative cursor-pointer perspective transition-all duration-700"
+    (click)="flipCard()"
+
+    [class.w-[340px]]="!isBack"
+    [class.h-[520px]]="!isBack"
+
+    [class.w-screen]="isBack"
+    [class.h-screen]="isBack"
+  >
+
+    <div
+      class="relative w-full h-full duration-700 transform-style preserve-3d"
+      [class.rotate-y-180]="isBack"
+    >
+
+      <!-- FRONT -->
+      <div
+        class="absolute inset-0 rounded-2xl overflow-hidden backface-hidden
+               shadow-2xl border border-zinc-400/20
+               bg-gradient-to-br from-green-900 via-green-800 to-green-700
+               p-5 flex flex-col"
+      >
+
+        <div class="flex items-center justify-between">
+          <img src="/assets/tmkt.png" class="w-20" />
+
+          <div
+            class="flex items-center gap-2 bg-white/10 border border-white/20
+                   px-3 py-1 rounded-full text-white text-xs"
+          >
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            Ativo
+          </div>
+        </div>
+
+        <div class="flex-1 flex items-center justify-center">
+          <img
+            src="/assets/logo-tmkt.png"
+            class="w-40 opacity-90"
+          />
+        </div>
+
+        <div>
+          <p class="text-white/60 text-xs uppercase">
+            Matrícula
+          </p>
+
+          <h3 class="text-white text-lg font-bold">
+            #847291
+          </h3>
+
+          <div class="mt-3">
+            <h2 class="text-white text-2xl font-bold">
+              Rafael Cordeiro
+            </h2>
+
+            <p class="text-white/70 text-sm">
+              Programador Trainee
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK FULLSCREEN -->
+      <div
+        class="absolute inset-0 bg-zinc-100 rotate-y-180 backface-hidden
+               flex flex-col overflow-auto"
+      >
+
+        <!-- HEADER -->
+        <div
+          class="bg-green-800 text-white px-6 py-5
+                 flex items-center justify-between shadow-lg"
+        >
+          <div>
+            <h1 class="text-2xl font-bold">
+              Crachá Digital
+            </h1>
+
+            <p class="text-white/70 text-sm">
+              Informações do colaborador
+            </p>
+          </div>
+
+          <img src="/assets/logo-tmkt.png" class="w-12" />
+        </div>
+
+        <!-- CONTENT -->
+        <div class="flex-1 p-6 flex flex-col items-center">
+
+          <!-- QR -->
+          <div class="bg-white p-5 rounded-3xl shadow-xl mt-8">
+            <img
+              src="/assets/qrcode.png"
+              class="w-64"
+            />
+          </div>
+
+          <!-- INFO -->
+          <div class="w-full max-w-xl mt-10 space-y-4">
+
+            <div class="bg-white rounded-2xl p-5 shadow">
+              <p class="text-zinc-400 text-xs uppercase">
+                Nome
+              </p>
+
+              <p class="text-zinc-800 font-bold text-lg">
+                Rafael Cordeiro
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+
+              <div class="bg-white rounded-2xl p-5 shadow">
+                <p class="text-zinc-400 text-xs uppercase">
+                  Matrícula
+                </p>
+
+                <p class="font-bold text-zinc-800">
+                  #847291
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-5 shadow">
+                <p class="text-zinc-400 text-xs uppercase">
+                  Validade
+                </p>
+
+                <p class="font-bold text-zinc-800">
+                  12/2026
+                </p>
+              </div>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 shadow">
+              <p class="text-zinc-400 text-xs uppercase">
+                Setor
+              </p>
+
+              <p class="font-bold text-zinc-800">
+                Tecnologia da Informação
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

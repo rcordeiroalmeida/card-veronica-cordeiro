@@ -1,3 +1,17 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { Cartao } from './pages/cartao/cartao';
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: Cartao,
+    pathMatch: 'full',
+  },
+
+
+  {
+    path: '**',
+    redirectTo: '',
+  },
+];
