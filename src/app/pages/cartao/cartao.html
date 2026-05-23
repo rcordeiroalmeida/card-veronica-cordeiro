@@ -1,243 +1,262 @@
-<div class="flex items-center justify-center min-h-screen bg-zinc-900 overflow-hidden">
-
+<div class="flex items-center justify-center min-h-screen bg-zinc-900 overflow-x-hidden">
+  <!-- CARD CONTAINER -->
   <div
-    class="relative cursor-pointer perspective transition-all duration-700"
-
-    (click)="flipCard()"
-
+    class="relative perspective-[2000px] transition-all duration-700"
     [class.w-[340px]]="!isBack"
     [class.h-[520px]]="!isBack"
-
     [class.w-screen]="isBack"
     [class.h-screen]="isBack"
   >
-
+    <!-- FLIP -->
     <div
-      class="relative w-full h-full duration-700 transform-style preserve-3d"
+      class="relative w-full h-full transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] preserve-3d transform-gpu"
+      style="will-change: transform"
       [class.rotate-y-180]="isBack"
     >
 
       <!-- FRONT -->
       <div
-        class="absolute inset-0 rounded-3xl overflow-hidden backface-hidden
-               shadow-[0_0_80px_rgba(16,185,129,0.12)]
-               border border-white/10
-               bg-gradient-to-br from-purple-950  to-violet-400
-               p-7 flex flex-col"
+        class="absolute inset-0 rounded-3xl overflow-hidden backface-hidden shadow-[0_0_80px_rgba(16,185,129,0.12)] border border-white/10 bg-gradient-to-br from-purple-950 to-violet-400 p-7 flex flex-col cursor-pointer"
+        (click)="flipCard()"
+        [class.pointer-events-none]="isBack"
       >
-
-        <!-- BG FX -->
-
-
-        <div
-          class="absolute bottom-0 right-0 w-72 h-72
-                 bg-violet-400/20 blur-3xl rounded-full"
-        ></div>
-
-        <div
-          class="absolute inset-0
-                 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_35%)]"
-        ></div>
-
+        <div class="absolute bottom-0 right-0 w-72 h-72 bg-violet-400/20 blur-3xl rounded-full"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_35%)]"></div>
         <div class="absolute inset-0 backdrop-blur-[1px]"></div>
 
-        <!-- CONTENT -->
         <div class="relative z-10 flex flex-col h-full">
-
-          <!-- TOP -->
           <div class="flex items-start justify-between">
-
-            <!-- LOGO -->
             <div class="relative">
-
-              <div
-                class="absolute inset-0 blur-3xl bg-emerald-400/20
-                       rounded-full scale-145"
-              ></div>
-
-              <img
-                src="/assets/logotipo.png"
-                class="relative w-62 drop-shadow-2xl"
-              />
-
+              <div class="absolute inset-0 blur-3xl bg-emerald-400/20 rounded-full scale-145"></div>
+              <img src="/assets/logotipo.png" class="relative w-62 drop-shadow-2xl" />
             </div>
-
           </div>
 
-          <!-- CENTER -->
           <div class="flex-1 flex flex-col justify-center">
-
             <div class="space-y-3">
-
-              <div
-                class="inline-flex items-center gap-2
-                       px-3 py-1 rounded-full
-                       bg-white/10 border border-white/10
-                       backdrop-blur-md"
-              >
-
-                <span class="h-2 w-2 rounded-full bg-emerald-500 montserrat"></span>
-                <span class="text-white/70 text-xs tracking-wide uppercase">
-
-                  CRP 06/61283
-                </span>
-              </div>
-
               <div class="space-y-1">
-
-                <h2
-                  class="text-white text-[34px]
-                         leading-[1.05]
-                         font-bold tracking-tight
-                         montserrat"
-                >
+                <h2 class="text-white text-4xl leading-[1.05] font-semibold tracking-tight cormorant">
                   Verônica C. Almeida
                 </h2>
-
-                <h4 class="text-white/70 text- font-normal montserrat">
-                  Psicóloga e Neuropsicóloga
-                </h4>
-
+                <div class="flex justify-between items-center">
+                  <h4 class="text-white/70 text-sm font-normal montserrat">Psicóloga e Neuropsicóloga</h4>
+                  <span class="border border-white/20 rounded-full text-[9px] text-white/50 px-2 py-1 montserrat">CRP 06/61283</span>
+                </div>
               </div>
-
             </div>
-
           </div>
 
-          <!-- FOOTER -->
           <div class="flex items-end justify-between gap-4">
-
             <div>
-
-              <p
-                class="text-white/40 text-[11px]
-                        tracking-[0.3em] montserrat"
-              >
-                CEO da Clínica Claramente
-              </p>
-
-              <p class="text-white/60 text-xs mt-1 montserrat">
-                Toque para interagir
-              </p>
-
+              <p class="text-white/40 text-[11px] tracking-[0.3em] montserrat">CEO DA CLÍNICA CLARAMENTE</p>
+              <p class="text-white/60 text-xs mt-1 montserrat">Toque para interagir</p>
             </div>
-
-            <div>
-              <ng-icon name="lucideNfc" style="width: 24px; height: 24px; color: white" />
-            </div>
-
+            <ng-icon name="lucideNfc" class="text-2xl" style="color: white"></ng-icon>
           </div>
-
         </div>
-
       </div>
 
       <!-- BACK -->
-
       <div
-        class="absolute inset-0 bg-gradient-to-b from-purple-800  to-violet-200 rotate-y-180 backface-hidden flex flex-col overflow-auto">
+        class="absolute inset-0 h-full rotate-y-180 backface-hidden overflow-y-auto overflow-x-hidden bg-gradient-to-br from-violet-600 to-violet-400"
+        style="-webkit-overflow-scrolling: touch;"
+        [class.rounded-3xl]="!isBack"
+        [class.rounded-none]="isBack"
+      >
+        <div class="absolute top-[-120px] right-[-120px] w-72 h-72 rounded-full bg-emerald-400/20 blur-3xl"></div>
 
+        <!-- WHITE LAYER -->
+        <div class="absolute inset-3 rounded-3xl bg-gradient-to-br from-white to-zinc-100 shadow-2xl flex flex-col overflow-y-auto overflow-x-hidden">
 
-        <!-- HEADER -->
-        <div class="space-y-2 border-b border-zinc-200/10 text-center p-12">
-
-          <div
-            class="inline-flex items-center gap-2
-                    px-3 py-1 rounded-full
-                    border border-zinc-200
-                    backdrop-blur-md"
-          >
-
-            <span class="h-2 w-2 rounded-full bg-emerald-500 montserrat"></span>
-            <span class="text-zinc-200 text-xs tracking-wide uppercase">
-
-              CRP 06/61283
-            </span>
-          </div>
-          <h2 class="text-white text-4xl font-bold cormorant">
-            Verônica C. Almeida
-          </h2>
-
-          <p class="text-zinc-600 montserrat text-sm">
-            Psicóloga e Neuropsicóloga
-          </p>
-
-        </div>
-
-        <!-- CONTENT -->
-        <div class="flex-1 p-6 flex flex-col items-center">
-
-          <!-- QR -->
-          <div class="bg-white p-5 rounded-3xl shadow-xl mt-8">
-            <img
-              src="/assets/qrcode.png"
-              class="w-64"
-            />
-          </div>
-
-          <!-- INFO -->
-          <div class="w-full max-w-xl mt-10 space-y-4">
-
-            <div class="bg-white rounded-2xl p-5 shadow">
-
-              <p class="text-zinc-400 text-xs uppercase">
-                Nome
-              </p>
-
-              <p class="text-zinc-800 font-bold text-lg">
-                Verônica C. Almeida
-              </p>
-
+          <!-- HEADER -->
+          <div class="px-5 py-4 text-center border-b border-zinc-200/40 shrink-0">
+            <h1 class="text-zinc-800 text-3xl cormorant font-semibold leading-tight">
+              Verônica C. <span class="text-emerald-400 italic">Almeida</span>
+            </h1>
+            <div class="flex justify-center items-center gap-3 mt-1">
+              <h4 class="text-zinc-400 text-xs font-normal montserrat">Psicóloga e Neuropsicóloga</h4>
+              <span class="border border-zinc-200 rounded-full text-[10px] text-zinc-500 px-2 py-0.5 montserrat">CRP 06/61283</span>
             </div>
+          </div>
 
-            <div class="grid grid-cols-2 gap-4">
+          <!-- LINKS -->
+          <div class="px-4 pt-3 pb-2 shrink-0">
+            <div class="bg-white rounded-xl shadow p-3">
+              <div class="flex items-center w-full divide-x divide-zinc-200/30">
 
-              <div class="bg-white rounded-2xl p-5 shadow">
+                <div class="flex-1 flex justify-center">
+                  <a href="https://wa.me/5511952793798" target="_blank">
+                    <article class="bg-emerald-400 p-2.5 rounded-xl text-white flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                      </svg>
+                    </article>
+                  </a>
+                </div>
 
-                <p class="text-zinc-400 text-xs uppercase">
-                  Matrícula
-                </p>
+                <div class="flex-1 flex justify-center">
+                  <a href="https://www.instagram.com/claramente_itaqua/" target="_blank">
+                    <article class="bg-linear-to-br from-[#833ab4] from-0% via-[#fd1d1d] via-65% to-[#fcb045] to-100% p-2.5 rounded-xl text-white flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                      </svg>
+                    </article>
+                  </a>
+                </div>
 
-                <p class="font-bold text-zinc-800">
-                  #847291
-                </p>
+                <div class="flex-1 flex justify-center">
+                  <a href="https://claramente.psc.br" target="_blank">
+                    <article class="bg-violet-500 p-2.5 rounded-xl text-white flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                      </svg>
+                    </article>
+                  </a>
+                </div>
+
+                <div class="flex-1 flex justify-center">
+                  <a href="https://google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIQCAEQLhivARjHARiABBiOBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIKCAUQABiABBiiBNIBCDUwMTVqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KRWdpsc8fc6UMQYTJQgYHq2l&daddr=Av.+Pres.+Tancredo+Neves,+363+-+Estação,+Itaquaquecetuba+-+SP,+08571-000" target="_blank">
+                    <article class="bg-violet-600 p-2.5 rounded-xl text-white flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                      </svg>
+                    </article>
+                  </a>
+                </div>
 
               </div>
+            </div>
+          </div>
 
-              <div class="bg-white rounded-2xl p-5 shadow">
+          <!-- ESPECIALIDADES -->
+          <div class="px-4 pt-1 shrink-0">
+            <div class="text-emerald-500 montserrat flex items-center gap-2 mb-2">
+              <h2 class="whitespace-nowrap font-medium text-sm">Especialidades</h2>
+              <hr class="flex-1 border-emerald-500/30" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="p-2.5 shadow bg-white rounded-xl flex items-center gap-2">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0">
+                  <ng-icon name="lucideBrain" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Psicoterapia</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">Adultos • Adolescentes • Casal</p>
+                </div>
+              </div>
 
-                <p class="text-zinc-400 text-xs uppercase">
-                  Validade
-                </p>
+              <div class="p-2.5 shadow bg-white rounded-xl flex items-center gap-2">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0">
+                  <ng-icon name="lucideBrain" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Neuropsicologia</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">Avaliação • Cognição • Memória</p>
+                </div>
+              </div>
 
-                <p class="font-bold text-zinc-800">
-                  12/2026
-                </p>
+              <div class="p-2.5 shadow bg-white rounded-xl flex items-center gap-2">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0">
+                  <ng-icon name="lucideBrain" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Avaliação</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">Diagnóstico • Laudos • Perícias</p>
+                </div>
+              </div>
 
+              <div class="p-2.5 shadow bg-white rounded-xl flex items-center gap-2">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0">
+                  <ng-icon name="lucideBrain" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Orientação Parental</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">Família • Vínculos • Desenvolvimento</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOBRE MIM -->
+          <div class="px-4 pt-2 pb-1 shrink-0">
+            <div class="text-emerald-500 montserrat flex items-center gap-2 mb-2">
+              <h2 class="whitespace-nowrap font-medium text-sm">Sobre mim</h2>
+              <hr class="flex-1 border-emerald-500/30" />
+            </div>
+            <div class="bg-white rounded-xl shadow p-3">
+              <span class="text-3xl leading-none text-emerald-400/30 font-serif">"</span>
+              <p class="text-[11px] text-zinc-500 leading-relaxed -mt-1">
+                Psicóloga e neuropsicóloga com mais de 20 anos de experiência, ofereço um cuidado
+                humano e especializado para adultos, adolescentes e famílias — unindo ciência e
+                afeto na promoção da saúde mental.
+              </p>
+              <p class="text-[11px] text-zinc-400 leading-relaxed mt-1.5">
+                Cada pessoa carrega uma história única. É nesse espaço de escuta e acolhimento
+                que a transformação acontece.
+              </p>
+              <div class="pt-2 border-t border-zinc-100 flex items-center justify-between mt-2">
+                <span class="text-[10px] text-zinc-400 montserrat">CRP 06/61283</span>
+                <span class="text-[10px] text-emerald-500 montserrat font-medium">Desde 2000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORMAÇÕES -->
+          <div class="px-4 pt-1 shrink-0">
+            <div class="text-emerald-500 montserrat flex items-center gap-2 mb-2">
+              <h2 class="whitespace-nowrap font-medium text-sm">Formações</h2>
+              <hr class="flex-1 border-emerald-500/30" />
+            </div>
+            <div class="bg-white rounded-xl shadow p-3 flex flex-col gap-2">
+
+              <div class="flex items-start gap-2.5">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0 mt-0.5">
+                  <ng-icon name="lucideGraduationCap" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Psicologia</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">Cruzeiro do sul • 2000</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0 mt-0.5">
+                  <ng-icon name="lucideGraduationCap" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Psicologia Hospitalar aplicada à cardiologia</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">HC FMUSP • 2008</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5">
+                <div class="bg-emerald-50 p-1.5 rounded-lg shrink-0 mt-0.5">
+                  <ng-icon name="lucideGraduationCap" class="text-base" style="color: #00d492"></ng-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-zinc-700 leading-tight">Neuropsicologia</p>
+                  <p class="text-[10px] text-zinc-400 leading-tight">Faculdade de ciências médicas da Santa Casa de São Paulo • 2013</p>
+                </div>
               </div>
 
             </div>
+          </div>
 
-            <div class="bg-white rounded-2xl p-5 shadow">
-
-              <p class="text-zinc-400 text-xs uppercase">
-                Setor
-              </p>
-
-              <p class="font-bold text-zinc-800">
-                Tecnologia da Informação
-              </p>
-
-            </div>
-
+          <!-- BOTÃO VOLTAR -->
+          <div class="px-4 py-3 shrink-0">
+            <button
+              (click)="flipCard()"
+              class="w-full py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-500 transition text-white text-xs font-medium montserrat flex items-center justify-center gap-2"
+            >
+              <ng-icon name="lucideChevronLeft" class="text-sm"></ng-icon>
+              Voltar ao cartão
+            </button>
           </div>
 
         </div>
-
       </div>
 
     </div>
-
   </div>
-
 </div>
